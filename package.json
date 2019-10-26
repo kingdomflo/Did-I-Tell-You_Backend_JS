@@ -1,0 +1,24 @@
+{
+  "name": "Did I tell you?",
+  "description": "Backend in express js to remember at wich person I have tell this anecdote",
+  "scripts": {
+    "start": "npm run shell"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^8.0.0",
+    "firebase-functions": "^3.1.0",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.7.0",
+    "sequelize": "^5.21.1",
+    "sqlite3": "^4.1.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.1.6"
+  },
+  "private": true
+}
