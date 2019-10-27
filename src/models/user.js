@@ -1,3 +1,5 @@
+const db = require("../models");
+const Relationship = require("./relationship");
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     "user",
@@ -16,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "user"
     }
   );
+
+  User.associate = models => {
+    User.hasMany(models.relationship);
+  };
 
   return User;
 };
