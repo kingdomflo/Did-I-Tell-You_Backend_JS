@@ -1,11 +1,12 @@
 const db = require("../models");
+const error = require("../tools/error");
 
 module.exports = app => {
   app.get("/", async (req, res) => {
     res.send({ hello: "comrade" });
   });
 
-  app.get("/ping", async (req, res) => {
+  app.get("/ping", async (req, res, next) => {
     let result;
     await db.sequelize
       .authenticate()
@@ -19,5 +20,11 @@ module.exports = app => {
       });
 
     res.send(result);
+  });
+
+  app.use(function(req, res, next) {
+    next(
+      new Error(error.sendError(404, ['no routes']))
+    );
   });
 };
