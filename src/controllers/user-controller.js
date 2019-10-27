@@ -6,7 +6,7 @@ module.exports = (app) => {
   });
 
   app.get("/user/:id", async (req, res) => {
-    res.send(await userService.findByPk(req.params.id));
+    res.send(await userService.findOneById(req.params.id));
   });
 
 };

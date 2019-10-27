@@ -1,9 +1,10 @@
-const userDb = require("../database/user-database");
+const db = require("../models");
 
 module.exports = {
   findAll: async function() {
     let result;
-    await userDb.findAll().then(data => {
+    await db.user.findAll().then(data => {
+      console.log(data);
       result = data;
     });
     return result;
@@ -11,7 +12,8 @@ module.exports = {
 
   findOneById: async function(pk) {
     let result;
-    await userDb.findOneById(pk).then(data => {
+    await db.user.findByPk(pk).then(data => {
+      console.log(data);
       result = data;
     });
     return result;
