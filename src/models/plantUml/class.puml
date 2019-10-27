@@ -1,0 +1,25 @@
+@startuml class
+object User {
+  id: integer PK
+  authId: varchar
+  username: varchar(50)
+  mail: varchar
+}
+
+object Relationship {
+  id: integer PK
+  userId: integer FK
+  name: varchar
+}
+
+object Story {
+  id: integer PK
+  userId: integer FK
+  text: varchar
+}
+
+Story "0..*" -- "1..*" Relationship
+User "1" -- "0..*" Relationship
+User "1" -- "0..*" Story
+
+@enduml
