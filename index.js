@@ -15,8 +15,8 @@ app.use(bodyParser.json());
 const appController = require("./src/controllers/app-controller");
 const userController = require("./src/controllers/user-controller");
 
-appController(app, db);
-userController(app, db);
+appController(app);
+userController(app);
 
 app.listen(port, function() {
   console.log("Hello port number " + port);

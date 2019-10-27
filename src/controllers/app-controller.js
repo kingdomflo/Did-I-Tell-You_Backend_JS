@@ -1,4 +1,6 @@
-module.exports = (app, db) => {
+const db = require("../models");
+
+module.exports = app => {
   app.get("/", async (req, res) => {
     res.send({ hello: "comrade" });
   });
