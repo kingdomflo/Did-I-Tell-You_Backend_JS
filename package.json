@@ -1,5 +1,5 @@
 {
-  "name": "Did I tell you?",
+  "name": "did-i-tell-you",
   "description": "Backend in express js to remember at wich person I have tell this anecdote",
   "scripts": {
     "start": "npm run shell"
