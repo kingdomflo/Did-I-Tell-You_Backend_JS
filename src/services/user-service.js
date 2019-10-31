@@ -19,5 +19,14 @@ module.exports = {
       throw new Error(error.sendError(400, ["user not present"]));
     }
     return result;
+  },
+
+  create: async function (req) {
+    let result;
+    console.log(req);
+    await userDb.create(req).then(data => {
+      result = data;
+    });
+    return result;
   }
 };

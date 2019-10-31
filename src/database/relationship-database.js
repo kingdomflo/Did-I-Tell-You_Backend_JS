@@ -15,5 +15,14 @@ module.exports = {
       result = data;
     });
     return result;
+  },
+
+  create: async function (relationship) {
+    console.log(relationship);
+    let result;
+    await db.relationship.create(relationship).then(newRelationship => {
+      result = newRelationship;
+    });
+    return result;
   }
 };

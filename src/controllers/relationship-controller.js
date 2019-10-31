@@ -16,4 +16,12 @@ module.exports = app => {
       next(e);
     }
   });
+
+  app.post("/relationship", async (req, res, next) => {
+    try {
+      res.send(await relationshipService.create(req.body));
+    } catch (e) {
+      next(e);
+    }
+  });
 };

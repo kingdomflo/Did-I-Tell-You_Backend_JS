@@ -16,4 +16,13 @@ module.exports = app => {
       next(e);
     }
   });
+
+  app.post("/user", async (req, res, next) => {
+    console.log(req);
+    try {
+      res.send(await userService.create(req.body));
+    } catch (e) {
+      next(e);
+    }
+  });
 };

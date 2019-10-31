@@ -15,5 +15,13 @@ module.exports = {
       result = data;
     });
     return result;
+  },
+
+  create: async function (body) {
+    let result;
+    await db.user.create(body).then(newUser => {
+      result = newUser;
+    });
+    return result;
   }
 };
