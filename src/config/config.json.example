@@ -1,5 +1,12 @@
 {
-  "development": {
+   "prod": {
+    "username": "your_database_username",
+    "password": "your_database_password",
+    "database": "your_database_name",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "dev": {
     "username": "your_database_username",
     "password": "your_database_password",
     "database": "your_database_name",
@@ -9,8 +16,9 @@
   "test": {
     "username": "",
     "password": null,
-    "database": "database_test",
+    "database": "database_test.sqlite",
     "host": "",
-    "dialect": "sqlite"
+    "dialect": "sqlite",
+    "storage": "./database_test.sqlite"
   }
 }

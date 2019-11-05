@@ -57,6 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 src/config/config.json
+database_test.sqlite
 
 # next.js build output
 .next
