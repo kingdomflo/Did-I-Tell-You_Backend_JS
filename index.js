@@ -5,7 +5,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const port = 8100;
-const ip = "127.2.249.120";
+const ip = "127.3.3.37";
 
 const db = require("./src/models");
 
