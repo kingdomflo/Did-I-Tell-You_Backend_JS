@@ -5,7 +5,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const port = 8100;
-const ip = "127.3.3.37";
+const ip = "127.3.12.37";
 
 const db = require("./src/models");
 
@@ -34,8 +34,8 @@ app.use(function(err, req, res, next) {
   res.status(error.status || 500).send(error);
 });
 
-app.listen(port, function() {
-  console.log("Hello port number " + port);
+app.listen(port, ip, function() {
+  console.log("Hello port number " + port + " and ip " + ip);
   if (process.argv.slice(2)[0] == "test") {
     db.sequelize.sync({ force: true }).then(() => {
       db.user.create({
@@ -58,4 +58,4 @@ app.listen(port, function() {
   }
 });
 
-app.listen(port, ip);
+// app.listen(port, ip);

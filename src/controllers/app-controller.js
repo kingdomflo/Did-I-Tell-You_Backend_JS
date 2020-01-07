@@ -22,9 +22,9 @@ module.exports = app => {
     res.send(result);
   });
 
-  app.use(function(req, res, next) {
-    next(
-      new Error(error.sendError(404, ['no routes']))
-    );
-  });
+  // app.use(function(req, res, next) {
+  //   next(
+  //     new Error(error.sendError(404, ['no routes']))
+  //   );
+  // });
 };
