@@ -34,19 +34,21 @@ app.use(function(err, req, res, next) {
   res.status(error.status || 500).send(error);
 });
 
-app.listen(port, ip, function() {
-  console.log("Hello port number " + port + " and ip " + ip);
+app.listen(port, ip, function() { 
+  console.log("Hello port number " + port + " and ip " + ip + " and in mode: " + process.argv.slice(2)[0]);
   if (process.argv.slice(2)[0] == "test") {
     db.sequelize.sync({ force: true }).then(() => {
       db.user.create({
         name: "Samy",
         email: "samy@gmail.com",
-        authId: "googleO2|ellohdarmoc"
+        authId: "googleO2|ellohdarmoc",
+        registrationDate: new Date()
       });
       db.user.create({
         name: "Caribou",
         email: "caribou@norsk.no",
-        authId: "auth02|aivanidnacs"
+        authId: "auth02|aivanidnacs",
+        registrationDate: new Date()
       });
       db.relationship.create({
         name: "Bambi",
