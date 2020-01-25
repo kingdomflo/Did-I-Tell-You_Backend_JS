@@ -5,7 +5,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const port = 8100;
-const ip = process.env.ALWAYSDATA_HTTPD_IP;
+const ip = env.ALWAYSDATA_HTTPD_IP;
 
 const db = require("./src/models");
 
