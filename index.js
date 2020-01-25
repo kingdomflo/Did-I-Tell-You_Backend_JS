@@ -42,13 +42,11 @@ app.listen(port, ip, function() {
         name: "Samy",
         email: "samy@gmail.com",
         authId: "googleO2|ellohdarmoc",
-        registrationDate: new Date()
       });
       db.user.create({
         name: "Caribou",
         email: "caribou@norsk.no",
         authId: "auth02|aivanidnacs",
-        registrationDate: new Date()
       });
       db.relationship.create({
         name: "Bambi",

@@ -2,6 +2,7 @@ const db = require("../models");
 const error = require("../tools/error");
 
 module.exports = app => {
+  console.log('hello world');
   app.get("/", async (req, res) => {
     res.send({ hello: "comrade" });
   });

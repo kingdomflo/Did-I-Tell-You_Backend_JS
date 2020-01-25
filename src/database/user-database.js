@@ -18,8 +18,6 @@ module.exports = {
   },
 
   create: async function (body) {
-    body.registrationDate = new Date();
-    console.log(body);
     let result;
     await db.user.create(body).then(newUser => {
       result = newUser;
