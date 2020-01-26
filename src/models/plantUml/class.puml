@@ -18,8 +18,16 @@ object Story {
   text: varchar
 }
 
+object Relationship_Group {
+  id: integer PK
+  userId: integer FK
+  label: varchar(50)
+}
+
 Story "0..*" -- "1..*" Relationship
 User "1" -- "0..*" Relationship
 User "1" -- "0..*" Story
+User "1" -- "0..*" Relationship_Group
+Relationship_Group "0..*" -- "1..*" Relationship
 
 @enduml

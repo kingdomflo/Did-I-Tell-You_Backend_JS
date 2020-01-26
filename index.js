@@ -36,6 +36,8 @@ app.use(function(err, req, res, next) {
 
 app.listen(port, ip, function() { 
   console.log("Hello port number " + port + " and ip " + ip + " and in mode: " + process.argv.slice(2)[0]);
+
+  // always init the db when we are in test mode
   if (process.argv.slice(2)[0] == "test") {
     db.sequelize.sync({ force: true }).then(() => {
       db.user.create({
@@ -50,6 +52,10 @@ app.listen(port, ip, function() {
       });
       db.relationship.create({
         name: "Bambi",
+        userId: 2
+      });
+      db.relationship.create({
+        name: "Queen",
         userId: 2
       });
     });
