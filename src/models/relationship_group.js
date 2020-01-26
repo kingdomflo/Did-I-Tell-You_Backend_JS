@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "relationship_group"
+      modelName: "relationship_group",
+      freezeTableName: true,
     }
   );
 
