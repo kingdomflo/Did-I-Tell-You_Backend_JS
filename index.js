@@ -36,52 +36,42 @@ app.use(function (err, req, res, next) {
   res.status(error.status || 500).send(error);
 });
 
-boot = function () {
-  app.listen(port, ip, function () {
-    console.log("Hello port number " + port + " and ip " + ip + " and in mode: " + process.argv.slice(2)[0]);
-  });
-}
+app.listen(port, ip, function () {
+  console.log("Hello port number " + port + " and ip " + ip + " and in mode: " + process.argv.slice(2)[0]);
 
-// always init the db when we are in test or dev mode
-if (process.argv.slice(2)[0] != "prod") {
-  db.sequelize.sync({ force: true }).then(async () => {
-    await db.user.create({
-      name: "Samy",
-      email: "samy@gmail.com",
-      authId: "googleO2|ellohdarmoc",
-    });
-    await db.user.create({
-      name: "Caribou",
-      email: "caribou@norsk.no",
-      authId: "auth02|aivanidnacs",
-    });
-    const relationshipBambi = await db.relationship.create({
-      name: "Bambi",
-      userId: 2
-    });
-    const relationshipQueen = await db.relationship.create({
-      name: "Queen",
-      userId: 2
-    });
-    const storyOne = await db.story.create({
-      text: "YT Joke",
-      userId: 2,
-    });
-    await storyOne.addRelationships([relationshipBambi, relationshipQueen]);
+  // always init the db when we are in test or dev mode
+  if (process.argv.slice(2)[0] == "test" || process.argv.slice(2)[0] == "dev") {
+    db.sequelize.sync({ force: true }).then(async () => {
+      await db.user.create({
+        name: "Samy",
+        email: "samy@gmail.com",
+        authId: "googleO2|ellohdarmoc",
+      });
+      await db.user.create({
+        name: "Caribou",
+        email: "caribou@norsk.no",
+        authId: "auth02|aivanidnacs",
+      });
+      const relationshipBambi = await db.relationship.create({
+        name: "Bambi",
+        userId: 2
+      });
+      const relationshipQueen = await db.relationship.create({
+        name: "Queen",
+        userId: 2
+      });
+      const storyOne = await db.story.create({
+        text: "YT Joke",
+        userId: 2,
+      });
+      await storyOne.addRelationships([relationshipBambi, relationshipQueen]);
 
-    console.log('db init is ok');
-  }).then(() => {
-    boot();
-  });
+      console.log('db init is ok');
+    });
 
-} else {
-  db.sequelize.sync().then(() => {
-    boot();
-  });
-}
-
-// app.listen(port, ip, function () {
-//   console.log("Hello port number " + port + " and ip " + ip + " and in mode: " + process.argv.slice(2)[0]);
-// });
+  } else {
+    db.sequelize.sync();
+  }
+});
 
 // app.listen(port, ip);

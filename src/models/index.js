@@ -7,9 +7,6 @@ var Sequelize = require("sequelize");
 var basename = path.basename(__filename);
 // dev | prod | test (dev by default)
 var env = process.argv.slice(2)[0] || "dev";
-if (env != "test" || env != "dev" || env != "prod") {
-  env = "test";
-}
 var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
 
