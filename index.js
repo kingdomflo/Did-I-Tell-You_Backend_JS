@@ -20,10 +20,12 @@ app.use(bodyParser.json());
 
 const userController = require("./src/controllers/user-controller");
 const relationshipController = require("./src/controllers/relationship-controller");
+const storyController = require("./src/controllers/story-controller")
 const appController = require("./src/controllers/app-controller");
 
 userController(app);
 relationshipController(app);
+storyController(app);
 appController(app);
 
 app.use(function (err, req, res, next) {

@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Get User",
+			"name": "Get Users",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -20,6 +20,17 @@
 					"path": [
 						"user"
 					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
 				}
 			},
 			"response": []
@@ -60,7 +71,7 @@
 			"response": []
 		},
 		{
-			"name": "Get Relationship",
+			"name": "Get Relationships",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -109,6 +120,28 @@
 					"path": [
 						"relationship"
 					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Stories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Story Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
 				}
 			},
 			"response": []
