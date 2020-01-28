@@ -5,13 +5,19 @@ API in progress
 
 To run the application:
 
-`npm run start` to run in dev mode
+`npm run start` to run in dev mode (default)
 
-`npm run start prod` to run in production mode
+`npm run start-prod` to run in production mode
 
-`npm run start test` to run in test mode
+`npm run start-test` to run in test mode
 
-In test mode, the db will always reset with fake data
+In test and dev mode, the db will always reset with fake data
+
+
+To run test:
+
+`npm run start-test` and then `npm run test`
+
 
 
 http://localhost:8100/

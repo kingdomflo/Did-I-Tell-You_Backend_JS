@@ -8,30 +8,35 @@ chai.use(chaiHttp);
 // let server = require('../');
 let baseUrl = chai.request('http://localhost:8100');
 
-//Our parent block
-describe('Sample', () => {
-  before((done) => {
-    done();
+describe('Sample route', function (done) {
+
+  // A very long environment setup.
+  // TODO when we are going to try to run the server and directly run the test
+  // before(function (done) {
+  //   this.timeout(10000); 
+  //   setTimeout(done, 9000);
+  // });
+
+  it(' / it should GET the hello comrade', function (done) {
+    baseUrl
+      .get('/')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.hello.should.equal('comrade');
+        done();
+      });
   });
 
-  describe('/GET /', () => {
-    it('it should GET the hello comrade', (done) => {
-      baseUrl
-        .get('/')
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.body.hello.should.equal('comrade');
-          done();
-        });
-    });
-    it('it should GET the ping', (done) => {
-      baseUrl
-        .get('/ping')
-        .end((err, res) => {
-          res.should.have.status(200);
-          done();
-        });
-    });
+  it(' /ping it should GET the ping', function (done) {
+    baseUrl
+      .get('/ping')
+      .end((err, res) => {
+        res.should.have.status(200);
+        done();
+      });
   });
+});
 
+describe('User test', function () {
+  require('./user.test');
 });
