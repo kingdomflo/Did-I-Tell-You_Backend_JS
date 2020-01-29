@@ -1,5 +1,6 @@
 {
   "name": "did-i-tell-you",
+  "version": "0.1.0",
   "description": "Backend in express js to remember at wich person I have tell this anecdote",
   "scripts": {
     "start": "node index.js",
@@ -28,5 +29,13 @@
     "firebase-functions-test": "^0.1.6",
     "mocha": "^2.4.5"
   },
-  "private": true
+  "private": true,
+  "apidoc": {
+    "title": "What are returning my route?",
+    "url": "https://localhost:8100",
+    "order": [
+      "User",
+      "Relationship"
+    ]
+  }
 }
