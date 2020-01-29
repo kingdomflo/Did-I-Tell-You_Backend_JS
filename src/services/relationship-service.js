@@ -2,6 +2,15 @@ const relationshipDb = require("../database/relationship-database");
 const error = require("../tools/error");
 
 module.exports = {
+
+  findAllForUser: async function(userId) {
+    let result;
+    await relationshipDb.findAllForUser(userId).then(data => {
+      result = data;
+    });
+    return result;
+  },
+
   findAll: async function() {
     let result;
     await relationshipDb.findAll().then(data => {

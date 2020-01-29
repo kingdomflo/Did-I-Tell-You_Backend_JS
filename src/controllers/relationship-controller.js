@@ -1,3 +1,5 @@
+const auth = require("../middleware/auth.middleware");
+
 module.exports = app => {
   const relationshipService = require("../services/relationship-service");
 
@@ -12,9 +14,9 @@ module.exports = app => {
    * @apiSuccess {Number} user.id
    * @apiSuccess {String} user.name
    */
-  app.get("/relationship", async (req, res, next) => {
+  app.get("/relationship", auth.isAuthenticated, async (req, res, next) => {
     try {
-      res.send(await relationshipService.findAll());
+      res.send(await relationshipService.findAllForUser(req.params.userId));
     } catch (e) {
       next(e);
     }

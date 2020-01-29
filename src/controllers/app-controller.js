@@ -1,5 +1,6 @@
 const db = require("../models");
 const error = require("../tools/error");
+const auth = require("../middleware/auth.middleware");
 
 module.exports = app => {
   console.log('hello world');
