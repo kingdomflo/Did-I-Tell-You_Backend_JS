@@ -39,4 +39,5 @@ describe('Sample route', function (done) {
 
 describe('User test', function () {
   require('./user.test');
+  require('./relationship.test');
 });
