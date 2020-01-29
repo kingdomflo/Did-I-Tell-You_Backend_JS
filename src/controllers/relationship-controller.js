@@ -3,10 +3,11 @@ const auth = require("../middleware/auth.middleware");
 module.exports = app => {
   const relationshipService = require("../services/relationship-service");
 
-  // TODO user can only read it's own relationship
   /**
-   * @api {get} /relationship/ Get all relationship
+   * @api {get} /relationship/ Get all relationship from the current user
    * @apiGroup Relationship
+   * 
+   * @apiHeader Authorization JWT Token with the id user
    *
    * @apiSuccess {Number} id
    * @apiSuccess {String} name

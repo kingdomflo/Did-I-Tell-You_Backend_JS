@@ -2,8 +2,20 @@ define({ "api": [
   {
     "type": "get",
     "url": "/relationship/",
-    "title": "Get all relationship",
+    "title": "Get all relationship from the current user",
     "group": "Relationship",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>JWT Token with the id user</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "fields": {
         "Success 200": [
