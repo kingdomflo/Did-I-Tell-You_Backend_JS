@@ -37,7 +37,7 @@ describe('Sample route', function (done) {
   });
 });
 
-describe('User test', function () {
+describe('Run all the real test', function () {
   require('./user.test');
   require('./relationship.test');
 });

@@ -4,8 +4,9 @@ module.exports = app => {
   const relationshipService = require("../services/relationship-service");
 
   /**
-   * @api {get} /relationship/ Get all relationship from the current user
+   * @api {get} /relationship/ Get All Relationship
    * @apiGroup Relationship
+   * @apiDescription Get all relationship from the current user
    * 
    * @apiHeader Authorization JWT Token with the id user
    *
@@ -25,8 +26,9 @@ module.exports = app => {
 
   // TODO user can only read it's own relationship
   /**
-   * @api {get} /relationship/:id Get one relationship by id
+   * @api {get} /relationship/:id Get One Relationship
    * @apiGroup Relationship
+   * @apiDescription Get one relationship by id from the current user
    *
    * @apiSuccess {Number} id
    * @apiSuccess {String} name
@@ -44,8 +46,9 @@ module.exports = app => {
 
   // TODO user can only add relationship to itself
   /**
-   * @api {post} /relationship/ Create a new relationship
+   * @api {post} /relationship/ Post Relationship
    * @apiGroup Relationship
+   * @apiDescription Create a new relationship
    *
    * @apiParam {String} name Name of the new relationship  
    * 

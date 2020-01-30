@@ -8,7 +8,20 @@ chai.use(chaiHttp);
 // let server = require('../');
 let baseUrl = chai.request('http://localhost:8100');
 
+let token;
+
 describe('User route', function (done) {
+
+  it(' /login it should GET the token', function (done) {
+    baseUrl
+      .post('/login').send({ authId: "auth02|aivanidnacs" })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.have.property('apiToken');
+        process.env.TOKEN = res.body.apiToken;
+        done();
+      });
+  });
 
   it(' /user it should GET all the user', function (done) {
     baseUrl

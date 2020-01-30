@@ -22,7 +22,7 @@ describe('Relationship route', function (done) {
     // TODO not hardcoded the token but go with login
     it(' /relationship it should GET all the relationship from a user', function (done) {
         baseUrl
-            .get('/relationship').set('Authorization', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mn0.cat2xMrZLn0FwicdGtZNzL7ifDTAKWB0k1RurSWjdnw')
+            .get('/relationship').set('Authorization', process.env.TOKEN)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');

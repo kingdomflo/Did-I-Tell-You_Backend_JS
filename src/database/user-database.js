@@ -23,5 +23,13 @@ module.exports = {
       result = newUser;
     });
     return result;
+  },
+
+  findOneByAuthId: async function (authId) {
+    let result;
+    await db.user.findOne({ where: { authId: authId } }).then(user => {
+      result = user;
+    });
+    return result;
   }
 };

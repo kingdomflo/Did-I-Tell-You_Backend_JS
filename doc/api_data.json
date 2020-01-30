@@ -2,8 +2,9 @@
   {
     "type": "get",
     "url": "/relationship/",
-    "title": "Get all relationship from the current user",
+    "title": "Get All Relationship",
     "group": "Relationship",
+    "description": "<p>Get all relationship from the current user</p>",
     "header": {
       "fields": {
         "Header": [
@@ -65,8 +66,9 @@
   {
     "type": "get",
     "url": "/relationship/:id",
-    "title": "Get one relationship by id",
+    "title": "Get One Relationship",
     "group": "Relationship",
+    "description": "<p>Get one relationship by id from the current user</p>",
     "success": {
       "fields": {
         "Success 200": [
@@ -116,8 +118,9 @@
   {
     "type": "post",
     "url": "/relationship/",
-    "title": "Create a new relationship",
+    "title": "Post Relationship",
     "group": "Relationship",
+    "description": "<p>Create a new relationship</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -152,7 +155,7 @@
   {
     "type": "get",
     "url": "/user/",
-    "title": "Get all user",
+    "title": "Get All User",
     "group": "User",
     "success": {
       "fields": {
@@ -210,7 +213,7 @@
   {
     "type": "get",
     "url": "/user/:id",
-    "title": "Get one user by id",
+    "title": "Get One User",
     "group": "User",
     "success": {
       "fields": {
@@ -264,5 +267,54 @@
     "filename": "src/controllers/user-controller.js",
     "groupTitle": "User",
     "name": "GetUserId"
+  },
+  {
+    "type": "post",
+    "url": "/login/",
+    "title": "Login",
+    "group": "User",
+    "description": "<p>Create user if not already exist and then return a token with the id of the user</p>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>JWT Token from the Front-End to certif that's authorize</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "authId",
+            "description": "<p>The id from Auth0</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "apiToken",
+            "description": "<p>The token to use in Front-End to be Authenticated at each API call</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/controllers/user-controller.js",
+    "groupTitle": "User",
+    "name": "PostLogin"
   }
 ]
