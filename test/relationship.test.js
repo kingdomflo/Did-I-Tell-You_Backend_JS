@@ -19,7 +19,6 @@ describe('Relationship route', function (done) {
             });
     });
 
-    // TODO not hardcoded the token but go with login
     it(' /relationship it should GET all the relationship from a user', function (done) {
         baseUrl
             .get('/relationship').set('Authorization', process.env.TOKEN)
