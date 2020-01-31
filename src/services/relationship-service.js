@@ -47,5 +47,17 @@ module.exports = {
       result = data;
     });
     return result;
+  },
+
+  deleteForUser: async function (req) {
+    let result;
+    await relationshipDb.deleteForUser(req.params.id, req.params.userId).then(data => {
+      if (data > 0) {
+        result = { rowDeleted: data };
+      } else {
+        throw new Error(error.sendError(400, ["relationship not deleted"]));
+      }
+    });
+    return result;
   }
 };

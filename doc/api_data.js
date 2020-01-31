@@ -1,5 +1,16 @@
 define({ "api": [
   {
+    "type": "delete",
+    "url": "/relationship/:id",
+    "title": "Delete Relationship",
+    "group": "Relationship",
+    "description": "<p>Delete a relationship</p>",
+    "version": "0.0.0",
+    "filename": "src/controllers/relationship-controller.js",
+    "groupTitle": "Relationship",
+    "name": "DeleteRelationshipId"
+  },
+  {
     "type": "get",
     "url": "/relationship/",
     "title": "Get All Relationship",

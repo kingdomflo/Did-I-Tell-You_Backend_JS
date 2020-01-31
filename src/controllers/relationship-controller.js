@@ -61,4 +61,17 @@ module.exports = app => {
       next(e);
     }
   });
+
+  /**
+   * @api {delete} /relationship/:id Delete Relationship
+   * @apiGroup Relationship
+   * @apiDescription Delete a relationship
+   */
+  app.delete("/relationship/:id", auth.isAuthenticated, async (req, res, next) => {
+    try {
+      res.send(await relationshipService.deleteForUser(req));
+    } catch (e) {
+      next(e);
+    }
+  });
 };

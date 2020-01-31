@@ -52,6 +52,10 @@ app.listen(port, ip, function () {
         email: "caribou@norsk.no",
         authId: "auth02|aivanidnacs",
       });
+      const relationshipKing = await db.relationship.create({
+        name: "King",
+        userId: 1
+      });
       const relationshipBambi = await db.relationship.create({
         name: "Bambi",
         userId: 2

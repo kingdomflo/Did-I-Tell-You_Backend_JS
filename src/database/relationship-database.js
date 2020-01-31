@@ -35,10 +35,17 @@ module.exports = {
   },
 
   create: async function (relationship) {
-    console.log(relationship);
     let result;
     await db.relationship.create(relationship).then(newRelationship => {
       result = newRelationship;
+    });
+    return result;
+  },
+
+  deleteForUser: async function (pk, userId) {
+    let result;
+    await db.relationship.destroy({ where: { id: pk, userId: userId } }).then(data => {
+      result = data;
     });
     return result;
   }

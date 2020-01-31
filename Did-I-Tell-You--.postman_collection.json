@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "301a8570-9907-4721-95f1-5e2108d0e372",
+		"_postman_id": "2057b4f7-a9f5-4ba2-94b5-8fd1d35aa3ac",
 		"name": "Did-I-Tell-You-?",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -187,6 +187,32 @@
 					"port": "8100",
 					"path": [
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Relationship",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTgwNDU3ODg2fQ.KoKFSUpMoSX1GQiJfJsyAg9zq5Yo9sdPMvPBwMfIhNE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8100/relationship/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"relationship",
+						"2"
 					]
 				}
 			},
