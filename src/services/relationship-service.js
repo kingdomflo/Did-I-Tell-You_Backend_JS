@@ -59,5 +59,19 @@ module.exports = {
       }
     });
     return result;
+  },
+
+  updateForUser: async function (req) {
+    let result;
+    await relationshipDb.updateForUser(req.params.id, req.params.userId, req.body).then(async data => {
+      if (data[0] == 1) {
+        await relationshipDb.findOneByIdForUser(req.params.id, req.params.userId).then(relationship => {
+          result = relationship;
+        });
+      } else {
+        throw new Error(error.sendError(400, ["relationship not updated"]));
+      }
+    });
+    return result;
   }
 };

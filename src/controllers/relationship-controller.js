@@ -74,4 +74,22 @@ module.exports = app => {
       next(e);
     }
   });
+
+  /**
+   * @api {put} /relationship/:id Update Relationship
+   * @apiGroup Relationship
+   * @apiDescription Update the a relationship for a user
+   * 
+   * @apiParam {String} name Name of the new relationship  
+   * 
+   * @apiSuccess {Number} id The relationship Id
+   * @apiSuccess {String} name The new relationship name
+   */
+  app.put("/relationship/:id", auth.isAuthenticated, relationshipValidator.relationshipValidationRules(), validator.validate, async (req, res, next) => {
+    try {
+      res.send(await relationshipService.updateForUser(req));
+    } catch (e) {
+      next(e);
+    }
+  });
 };

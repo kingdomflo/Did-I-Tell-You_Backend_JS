@@ -164,6 +164,50 @@
     "name": "PostRelationship"
   },
   {
+    "type": "put",
+    "url": "/relationship/:id",
+    "title": "Update Relationship",
+    "group": "Relationship",
+    "description": "<p>Update the a relationship for a user</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Name of the new relationship</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The relationship Id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>The new relationship name</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/controllers/relationship-controller.js",
+    "groupTitle": "Relationship",
+    "name": "PutRelationshipId"
+  },
+  {
     "type": "get",
     "url": "/user/",
     "title": "Get All User",
