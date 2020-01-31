@@ -1,6 +1,8 @@
+const userService = require("../services/user-service");
+const auth = require("../middleware/auth.middleware");
+const validator = require("../validators/validator");
+
 module.exports = app => {
-  const userService = require("../services/user-service");
-  const auth = require("../middleware/auth.middleware");
 
   // TODO add a good token to verify we are from the good Auth0 Serivce
   /**

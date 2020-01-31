@@ -3,7 +3,7 @@ const error = require("../tools/error");
 
 module.exports = {
 
-  findAllForUser: async function(userId) {
+  findAllForUser: async function (userId) {
     let result;
     await relationshipDb.findAllForUser(userId).then(data => {
       result = data;
@@ -11,7 +11,7 @@ module.exports = {
     return result;
   },
 
-  findAll: async function() {
+  findAll: async function () {
     let result;
     await relationshipDb.findAll().then(data => {
       result = data;
@@ -19,20 +19,31 @@ module.exports = {
     return result;
   },
 
-  findOneById: async function(pk) {
+  findOneByIdForUser: async function (pk, userId) {
+    let result;
+    await relationshipDb.findOneByIdForUser(pk, userId).then(data => {
+      result = data;
+    });
+    if (result == null) {
+      throw new Error(error.sendError(400, ["relationship not present"]));
+    }
+    return result;
+  },
+
+  findOneById: async function (pk) {
     let result;
     await relationshipDb.findOneById(pk).then(data => {
       result = data;
     });
     if (result == null) {
-      throw new Error(error.sendError(400, ["user not present"]));
+      throw new Error(error.sendError(400, ["relationship not present"]));
     }
     return result;
   },
 
   create: async function (req) {
     let result;
-    await relationshipDb.create(req).then(data => {
+    await relationshipDb.create({ name: req.body.name, userId: req.params.userId }).then(data => {
       result = data;
     });
     return result;

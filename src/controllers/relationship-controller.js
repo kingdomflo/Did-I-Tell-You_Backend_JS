@@ -1,4 +1,6 @@
 const auth = require("../middleware/auth.middleware");
+const validator = require("../validators/validator");
+const relationshipValidator = require("../validators/relationship.validator");
 
 module.exports = app => {
   const relationshipService = require("../services/relationship-service");
@@ -24,7 +26,6 @@ module.exports = app => {
     }
   });
 
-  // TODO user can only read it's own relationship
   /**
    * @api {get} /relationship/:id Get One Relationship
    * @apiGroup Relationship
@@ -36,15 +37,14 @@ module.exports = app => {
    * @apiSuccess {Number} user.id
    * @apiSuccess {String} user.name
    */
-  app.get("/relationship/:id", async (req, res, next) => {
+  app.get("/relationship/:id", auth.isAuthenticated, async (req, res, next) => {
     try {
-      res.send(await relationshipService.findOneById(req.params.id));
+      res.send(await relationshipService.findOneByIdForUser(req.params.id, req.params.userId));
     } catch (e) {
       next(e);
     }
   });
 
-  // TODO user can only add relationship to itself
   /**
    * @api {post} /relationship/ Post Relationship
    * @apiGroup Relationship
@@ -54,9 +54,9 @@ module.exports = app => {
    * 
    * @apiSuccess {Number} id The new relationship Id
    */
-  app.post("/relationship", async (req, res, next) => {
+  app.post("/relationship", auth.isAuthenticated, relationshipValidator.relationshipValidationRules(), validator.validate, async (req, res, next) => {
     try {
-      res.send(await relationshipService.create(req.body));
+      res.send(await relationshipService.create(req));
     } catch (e) {
       next(e);
     }

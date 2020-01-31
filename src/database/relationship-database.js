@@ -18,6 +18,14 @@ module.exports = {
     return result;
   },
 
+  findOneByIdForUser: async function (pk, userId) {
+    let result;
+    await db.relationship.findOne({ where: { id: pk, userId: userId } }).then(data => {
+      result = data;
+    });
+    return result;
+  },
+
   findOneById: async function (pk) {
     let result;
     await db.relationship.findByPk(pk).then(data => {
