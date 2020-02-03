@@ -40,4 +40,5 @@ describe('Sample route', function (done) {
 describe('Run all the real test', function () {
   require('./user.test');
   require('./relationship.test');
+  require('./story.test');
 });
