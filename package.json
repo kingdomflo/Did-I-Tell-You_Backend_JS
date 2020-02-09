@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Backend in express js to remember at wich person I have tell this anecdote",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js dev",
     "start-prod": "node index.js prod",
     "start-test": "node index.js test",
     "test": "mocha ./test/sample.test.js"

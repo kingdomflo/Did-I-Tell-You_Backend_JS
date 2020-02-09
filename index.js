@@ -64,6 +64,10 @@ app.listen(port, ip, function () {
         name: "Queen",
         userId: 2
       });
+      const relationshipKaiser = await db.relationship.create({
+        name: "Kaiser",
+        userId: 2
+      })
       const storyOne = await db.story.create({
         text: "YT Joke",
         userId: 2,

@@ -18,14 +18,14 @@ describe("Relationship route", function (done) {
         });
     });
 
-    it(" /relationship it should GET all the relationship from a user, 2", function (done) {
+    it(" /relationship it should GET all the relationship from a user, 3", function (done) {
         baseUrl
             .get("/relationship")
             .set("Authorization", process.env.TOKEN)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a("array");
-                res.body.length.should.be.eql(2);
+                res.body.length.should.be.eql(3);
                 done();
             });
     });
@@ -36,7 +36,7 @@ describe("Relationship route", function (done) {
             .set("Authorization", process.env.TOKEN)
             .send({ name: "", userId: 2 })
             .end((err, res) => {
-                res.should.have.status(422);
+                res.should.have.status(400);
                 res.body.should.have.property("messages");
                 done();
             });
@@ -47,7 +47,7 @@ describe("Relationship route", function (done) {
             .post("/relationship")
             .set("Authorization", process.env.TOKEN)
             .end((err, res) => {
-                res.should.have.status(422);
+                res.should.have.status(400);
                 res.body.should.have.property("messages");
                 done();
             });
@@ -67,14 +67,14 @@ describe("Relationship route", function (done) {
             });
     });
 
-    it(" /relationship it should GET all the relationship from a user, now 3", function (done) {
+    it(" /relationship it should GET all the relationship from a user, now 4", function (done) {
         baseUrl
             .get("/relationship")
             .set("Authorization", process.env.TOKEN)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a("array");
-                res.body.length.should.be.eql(3);
+                res.body.length.should.be.eql(4);
                 done();
             });
     });
@@ -122,7 +122,7 @@ describe("Relationship route", function (done) {
             .set("Authorization", process.env.TOKEN)
             .send({ name: "" })
             .end((err, res) => {
-                res.should.have.status(422);
+                res.should.have.status(400);
                 done();
             });
     });
@@ -133,7 +133,7 @@ describe("Relationship route", function (done) {
             .set("Authorization", process.env.TOKEN)
             .send({ nom: "" })
             .end((err, res) => {
-                res.should.have.status(422);
+                res.should.have.status(400);
                 done();
             });
     });
@@ -169,14 +169,14 @@ describe("Relationship route", function (done) {
             });
     });
 
-    it(" /relationship it should GET all the relationship from a user, now 2", function (done) {
+    it(" /relationship it should GET all the relationship from a user, now 3", function (done) {
         baseUrl
             .get("/relationship")
             .set("Authorization", process.env.TOKEN)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a("array");
-                res.body.length.should.be.eql(2);
+                res.body.length.should.be.eql(3);
                 done();
             });
     });

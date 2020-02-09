@@ -34,4 +34,20 @@ module.exports = {
     return result;
   },
 
+  create: async function (text, userId, transac = null) {
+    let result;
+    await db.story.create({ text, userId }, { transaction: transac }).then(data => {
+      result = data;
+    });
+    return result;
+  },
+
+  addArrayOfRelationship: async function (story, relationships, transac = null) {
+    let result;
+    await story.addRelationships(relationships, { transaction: transac }).then(data => {
+      result = data;
+    });
+    return result;
+  }
+
 };
