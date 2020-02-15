@@ -266,6 +266,36 @@
 			"response": []
 		},
 		{
+			"name": "Delete Story",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTgwNzMyNzA1fQ.FaZfAVRIIo7HtlAgZR6gofXjsI3KvAMJ6oHywzvpsYw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8100/story/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"story",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Login",
 			"request": {
 				"method": "POST",

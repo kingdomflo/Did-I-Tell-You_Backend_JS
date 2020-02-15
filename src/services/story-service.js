@@ -94,6 +94,18 @@ module.exports = {
       }
     });
     return result;
-  }
+  },
+
+  deleteForUser: async function (req) {
+    let result;
+    await storyDb.deleteForUser(req.params.id, req.params.userId).then(data => {
+      if (data > 0) {
+        result = { rowDeleted: data };
+      } else {
+        throw new Error(error.sendError(400, ["story not deleted"]));
+      }
+    });
+    return result;
+  },
 
 };

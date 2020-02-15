@@ -56,6 +56,14 @@ module.exports = {
       result = data;
     });
     return result;
-  }
+  },
+
+  deleteForUser: async function (pk, userId) {
+    let result;
+    await db.story.destroy({ where: { id: pk, userId: userId } }).then(data => {
+      result = data;
+    });
+    return result;
+  },
 
 };

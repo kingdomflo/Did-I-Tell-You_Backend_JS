@@ -32,11 +32,11 @@ describe("Story route", function (done) {
 
   it(" /story it should GET the story YT Joke with two relationship", function (done) {
     baseUrl
-      .get("/story/1")
+      .get("/story/2")
       .set("Authorization", process.env.TOKEN)
       .end((err, res) => {
         res.should.have.status(200);
-        res.body.should.have.property("id").eql(1);
+        res.body.should.have.property("id").eql(2);
         res.body.should.have.property("text").eql("YT Joke");
         res.body.should.have.property("relationships").a("array");
         res.body.relationships.length.should.be.eql(2);
@@ -129,6 +129,48 @@ describe("Story route", function (done) {
         res.should.have.status(200);
         res.body.should.have.property("id").eql(storyId);
         res.body.should.have.property("text").eql("Peace story");
+        done();
+      });
+  });
+
+  it(" /story it should not DELETE the story id one wich is not belong to the current user", function (done) {
+    baseUrl
+      .delete("/story/1")
+      .set("Authorization", process.env.TOKEN)
+      .end((err, res) => {
+        res.should.have.status(400);
+        done();
+      });
+  });
+
+  it(" /story it should DELETE the relationship War-Peace story", function (done) {
+    baseUrl
+      .delete("/story/" + storyId)
+      .set("Authorization", process.env.TOKEN)
+      .end((err, res) => {
+        res.should.have.status(200);
+        done();
+      });
+  });
+
+  it(" /story it should GET all the story from a user, now 1", function (done) {
+    baseUrl
+      .get("/story")
+      .set("Authorization", process.env.TOKEN)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a("array");
+        res.body.length.should.be.eql(1);
+        done();
+      });
+  });
+
+  it(" /story it should not DELETE the story wich is not present anymore", function (done) {
+    baseUrl
+      .delete("/story/" + storyId)
+      .set("Authorization", process.env.TOKEN)
+      .end((err, res) => {
+        res.should.have.status(400);
         done();
       });
   });

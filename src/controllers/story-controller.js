@@ -107,4 +107,17 @@ module.exports = app => {
     }
   });
 
+  /**
+   * @api {delete} /story/:id Delete Story
+   * @apiGroup Story
+   * @apiDescription Delete a story
+   */
+  app.delete("/story/:id", auth.isAuthenticated, async (req, res, next) => {
+    try {
+      res.send(await storyService.deleteForUser(req));
+    } catch (e) {
+      next(e);
+    }
+  });
+
 };

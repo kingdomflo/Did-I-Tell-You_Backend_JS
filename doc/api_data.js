@@ -208,6 +208,17 @@ define({ "api": [
     "name": "PutRelationshipId"
   },
   {
+    "type": "delete",
+    "url": "/story/:id",
+    "title": "Delete Story",
+    "group": "Story",
+    "description": "<p>Delete a story</p>",
+    "version": "0.0.0",
+    "filename": "src/controllers/story-controller.js",
+    "groupTitle": "Story",
+    "name": "DeleteStoryId"
+  },
+  {
     "type": "get",
     "url": "/story/",
     "title": "Get All Story",
