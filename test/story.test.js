@@ -8,6 +8,8 @@ chai.use(chaiHttp);
 // let server = require('../');
 let baseUrl = chai.request("http://localhost:8100");
 
+let storyId;
+
 describe("Story route", function (done) {
   it(" /story it should have an error because we are not authenticated", function (done) {
     baseUrl.get("/story").end((err, res) => {
@@ -58,6 +60,7 @@ describe("Story route", function (done) {
         res.body.should.have.property("text");
         res.body.should.have.property("relationships").a("array");
         res.body.relationships.length.should.be.eql(1);
+        storyId = res.body.id;
         done();
       });
   });
@@ -116,4 +119,18 @@ describe("Story route", function (done) {
         done();
       });
   });
+
+  it(" /story it should PUT War story to Peace story", function (done) {
+    baseUrl
+      .put("/story/" + storyId)
+      .set("Authorization", process.env.TOKEN)
+      .send({ text: "Peace story" })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.have.property("id").eql(storyId);
+        res.body.should.have.property("text").eql("Peace story");
+        done();
+      });
+  });
+
 });

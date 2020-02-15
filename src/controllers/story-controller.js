@@ -81,4 +81,30 @@ module.exports = app => {
     }
   });
 
+  /**
+   * @api {put} /story/:id Modify One Story
+   * @apiGroup Story
+   * @apiDescription Modify one story
+   * 
+   * @apiHeader Authorization JWT Token with the id user
+   * 
+   * @apiParam {String} text Text that describe the new story 
+   *
+   * @apiSuccess {Number} id
+   * @apiSuccess {String} text
+   * @apiSuccess {Object} user
+   * @apiSuccess {Number} user.id
+   * @apiSuccess {String} user.name
+   * @apiSuccess {Object[]} relationships
+   * @apiSuccess {Number} relationship.id
+   * @apiSuccess {String} relationship.name
+   */
+  app.put("/story/:id", auth.isAuthenticated, storyValidator.storyValidationRules(), validator.validate, async (req, res, next) => {
+    try {
+      res.send(await storyService.updateForUser(req));
+    } catch (e) {
+      next(e);
+    }
+  });
+
 };

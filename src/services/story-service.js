@@ -80,7 +80,20 @@ module.exports = {
       await t.rollback();
       throw new Error(error.sendError(400, ["story not stored"]));
     }
-  }
+  },
 
+  updateForUser: async function (req) {
+    let result;
+    await storyDb.updateForUser(req.params.id, req.params.userId, req.body).then(async data => {
+      if (data[0] == 1) {
+        await storyDb.findOneByIdForUser(req.params.id, req.params.userId).then(story => {
+          result = story;
+        });
+      } else {
+        throw new Error(error.sendError(400, ["story not updated"]));
+      }
+    });
+    return result;
+  }
 
 };

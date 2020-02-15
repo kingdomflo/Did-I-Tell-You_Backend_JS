@@ -48,6 +48,14 @@ module.exports = {
       result = data;
     });
     return result;
+  },
+
+  updateForUser: async function (pk, userId, object) {
+    let result;
+    await db.story.update(object, { where: { id: pk, userId: userId } }).then(data => {
+      result = data;
+    });
+    return result;
   }
 
 };
