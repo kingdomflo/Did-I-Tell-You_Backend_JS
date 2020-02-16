@@ -6,6 +6,46 @@
 	},
 	"item": [
 		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "TODO",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"authId\": \"auth02|aivanidnacs\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get Users",
 			"request": {
 				"method": "GET",
@@ -131,6 +171,73 @@
 			"response": []
 		},
 		{
+			"name": "Delete Relationship",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTgwNDU3ODg2fQ.KoKFSUpMoSX1GQiJfJsyAg9zq5Yo9sdPMvPBwMfIhNE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8100/relationship/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"relationship",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Relationship",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTgwNDU3ODg2fQ.KoKFSUpMoSX1GQiJfJsyAg9zq5Yo9sdPMvPBwMfIhNE",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"ha\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/relationship/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"relationship",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get Stories",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -177,9 +284,24 @@
 			"name": "Get Story Id",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTgwNDU3ODg2fQ.KoKFSUpMoSX1GQiJfJsyAg9zq5Yo9sdPMvPBwMfIhNE",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8100/story/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"story",
+						"2"
+					]
 				}
 			},
 			"response": []
@@ -296,78 +418,12 @@
 			"response": []
 		},
 		{
-			"name": "Login",
+			"name": "Add relationship to story",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "TODO",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"authId\": \"auth02|aivanidnacs\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8100/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8100",
-					"path": [
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete Relationship",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTgwNDU3ODg2fQ.KoKFSUpMoSX1GQiJfJsyAg9zq5Yo9sdPMvPBwMfIhNE",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8100/relationship/2",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8100",
-					"path": [
-						"relationship",
-						"2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update Relationship",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Authorization",
 						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTgwNDU3ODg2fQ.KoKFSUpMoSX1GQiJfJsyAg9zq5Yo9sdPMvPBwMfIhNE",
 						"type": "text"
 					},
@@ -380,7 +436,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"ha\"\n}",
+					"raw": "[\n\t{\"id\": 4}\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -388,15 +444,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8100/relationship/3",
+					"raw": "http://localhost:8100/story/2/relationship",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8100",
 					"path": [
-						"relationship",
-						"3"
+						"story",
+						"2",
+						"relationship"
 					]
 				}
 			},
