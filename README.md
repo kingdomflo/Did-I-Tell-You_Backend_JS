@@ -23,8 +23,10 @@ To run test:
 http://localhost:8100/
 
 
-## DataBase (in progress)
+## DataBase
 
 ![alt UML](https://raw.githubusercontent.com/kingdomflo/Did-I-Tell-You_Backend_JS/master/out/src/models/plantUml/class/class.png)
 
-## API Route (in progress)
+## API Route doc (in progress)
+
+In the doc file, there is the html page we need

@@ -6,14 +6,14 @@ define({
     "Relationship"
   ],
   "name": "did-i-tell-you",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Backend in express js to remember at wich person I have tell this anecdote",
   "sampleUrl": false,
   "defaultVersion": "0.0.0",
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2020-02-16T17:42:28.335Z",
+    "time": "2020-02-16T17:52:27.922Z",
     "url": "http://apidocjs.com",
     "version": "0.20.0"
   }
