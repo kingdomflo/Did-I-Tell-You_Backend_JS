@@ -147,4 +147,28 @@ module.exports = app => {
     }
   });
 
+  /**
+   * @api {delete} /story/:id/relationship/:relationshipId Delete a relationships from one story
+   * @apiGroup Story
+   * @apiDescription Remove one relationships to the story id
+   * 
+   * @apiHeader Authorization JWT Token with the id user   
+   *
+   * @apiSuccess {Number} id
+   * @apiSuccess {String} text
+   * @apiSuccess {Object} user
+   * @apiSuccess {Number} user.id
+   * @apiSuccess {String} user.name
+   * @apiSuccess {Object[]} relationships
+   * @apiSuccess {Number} relationship.id
+   * @apiSuccess {String} relationship.name
+   */
+  app.delete("/story/:id/relationship/:relationshipId", auth.isAuthenticated, async (req, res, next) => {
+    try {
+      res.send(await storyService.removeRelationshipToStory(req));
+    } catch (e) {
+      next(e);
+    }
+  });
+
 };

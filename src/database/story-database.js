@@ -66,4 +66,12 @@ module.exports = {
     return result;
   },
 
+  deleteRelationshipInStory: async function (story, relationshipId) {
+    let result;
+    await story.removeRelationship(relationshipId).then(data => {
+      result = data;
+    });
+    return result;
+  },
+
 };

@@ -203,4 +203,17 @@ describe("Story route", function (done) {
       });
   });
 
+  it(" /story it should DELETE a relationship (the 2) to the story id 2", function (done) {
+    baseUrl
+      .delete("/story/2/relationship/2")
+      .set("Authorization", process.env.TOKEN)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.have.property("id").eql(2);
+        res.body.should.have.property("relationships").a("array");
+        res.body.relationships.length.should.be.eql(3);
+        done();
+      });
+  });
+
 });

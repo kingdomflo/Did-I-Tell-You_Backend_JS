@@ -458,6 +458,34 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Remove relationship to story",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTgwNDU3ODg2fQ.KoKFSUpMoSX1GQiJfJsyAg9zq5Yo9sdPMvPBwMfIhNE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8100/story/2/relationship/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"story",
+						"2",
+						"relationship",
+						"2"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}

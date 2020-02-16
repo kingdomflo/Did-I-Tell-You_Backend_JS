@@ -140,4 +140,25 @@ module.exports = {
     return result;
   },
 
+  removeRelationshipToStory: async function (req) {
+    let result;
+
+    await storyDb.findOneByIdForUser(req.params.id, req.params.userId).then(data => {
+      result = data;
+    });
+
+    if (result == null) {
+      throw new Error(error.sendError(400, ["story not present"]));
+    } else {
+      await storyDb.deleteRelationshipInStory(result, req.params.relationshipId).then(data => {
+
+      });
+      await storyDb.findOneByIdForUser(req.params.id, req.params.userId).then(data => {
+        result = data;
+      });
+    }
+
+    return result;
+  },
+
 };
