@@ -108,4 +108,36 @@ module.exports = {
     return result;
   },
 
+  addRelationshipsToStory: async function (req) {
+    let result;
+
+    await storyDb.findOneByIdForUser(req.params.id, req.params.userId).then(data => {
+      result = data;
+    });
+
+    if (req.body.length > 0) {
+      let relationshipsId = []
+
+      for (const item of req.body) {
+        await relationshipDb.findOneByIdForUser(item.id, req.params.userId).then(data => {
+          if (data) {
+            relationshipsId.push(data.id);
+          }
+        });
+      }
+
+      if (relationshipsId.length > 0) {
+        await storyDb.addArrayOfRelationship(result, relationshipsId).then(data => {
+          result = data;
+        });
+
+        await storyDb.findOneByIdForUser(req.params.id, req.params.userId).then(data => {
+          result = data;
+        });
+      }
+    }
+
+    return result;
+  },
+
 };

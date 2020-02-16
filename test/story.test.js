@@ -175,4 +175,32 @@ describe("Story route", function (done) {
       });
   });
 
+  it(" /story it should POST a new relationship to the story id 2", function (done) {
+    baseUrl
+      .post("/story/2/relationships")
+      .set("Authorization", process.env.TOKEN)
+      .send([{ id: 4 }, { id: 5 }])
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.have.property("id").eql(2);
+        res.body.should.have.property("relationships").a("array");
+        res.body.relationships.length.should.be.eql(4);
+        done();
+      });
+  });
+
+  it(" /story it should not POST a new relationship to the story id 2", function (done) {
+    baseUrl
+      .post("/story/2/relationships")
+      .set("Authorization", process.env.TOKEN)
+      .send([{ id: 9 }])
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.have.property("id").eql(2);
+        res.body.should.have.property("relationships").a("array");
+        res.body.relationships.length.should.be.eql(4);
+        done();
+      });
+  });
+
 });

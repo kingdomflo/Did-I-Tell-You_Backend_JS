@@ -120,4 +120,31 @@ module.exports = app => {
     }
   });
 
+  /**
+   * @api {post} /story/:id/relationships Add relationships to one story
+   * @apiGroup Story
+   * @apiDescription Add one or more relationships to the story id
+   * 
+   * @apiHeader Authorization JWT Token with the id user
+   * 
+   * @apiParam {Object[]}  Array Array of new relationship who we have tell the story
+   * @apiParam {Number} relationship.id id of the relationship     
+   *
+   * @apiSuccess {Number} id
+   * @apiSuccess {String} text
+   * @apiSuccess {Object} user
+   * @apiSuccess {Number} user.id
+   * @apiSuccess {String} user.name
+   * @apiSuccess {Object[]} relationships
+   * @apiSuccess {Number} relationship.id
+   * @apiSuccess {String} relationship.name
+   */
+  app.post("/story/:id/relationships", auth.isAuthenticated, async (req, res, next) => {
+    try {
+      res.send(await storyService.addRelationshipsToStory(req));
+    } catch (e) {
+      next(e);
+    }
+  });
+
 };

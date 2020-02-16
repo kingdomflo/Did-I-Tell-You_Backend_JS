@@ -68,6 +68,10 @@ app.listen(port, ip, function () {
         name: "Kaiser",
         userId: 2
       });
+      const relationshipKaiserin = await db.relationship.create({
+        name: "Kaiserin",
+        userId: 2
+      });
       const story = await db.story.create({
         text: "Vim tips",
         userId: 1,
