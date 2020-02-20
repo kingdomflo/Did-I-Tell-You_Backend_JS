@@ -3,6 +3,7 @@ require("dotenv").config();
 const env = process.env;
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require('cors')
 
 const port = 8100;
 const ip = env.ALWAYSDATA_HTTPD_IP;
@@ -17,6 +18,7 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+app.use(cors());
 
 const userController = require("./src/controllers/user-controller");
 const relationshipController = require("./src/controllers/relationship-controller");
